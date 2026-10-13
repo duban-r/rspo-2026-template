@@ -115,7 +115,7 @@ git push
 | 01–05 | чистий Python 3.12, **власна машина** |
 | 06 | `pip install numpy numba` |
 | 07 | браузер: Google Colab або NVIDIA DLI |
-| 10–14 | Docker + Redis |
+| 08–14 | нічого: стенди в `praktyka/`, стандартна бібліотека Python (Docker — лише ⭐) |
 | 15 | акаунт Google |
 
 ⚠️ Практичні 01–05 міряються **на власній машині**, а не в хмарі:
