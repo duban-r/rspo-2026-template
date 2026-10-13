@@ -48,6 +48,29 @@
 
 ---
 
+## Спершу — забрати файли стенда у свій репозиторій (3 хв)
+
+Ваш репозиторій — копія шаблону станом на початок семестру. Файлів стенда в ньому
+немає, і `git pull` їх **не принесе**: він тягне зміни з вашого GitHub, а не з шаблону.
+
+Один раз за семестр — запам'ятати адресу шаблону (якщо вже робили — пропустіть):
+
+```
+git remote add shablon https://github.com/duban-r/rspo-2026-template.git
+```
+
+Перед кожною практичною модуля 2 — забрати теку теми:
+
+```
+git fetch shablon
+git checkout shablon/main -- praktyka/08-prypushchennya
+```
+
+✔ У `praktyka/08-prypushchennya` з'явились `sluzhba.py`, `nenadiyna_merezha.py`, `kliyent.py`.
+
+Без git: [архів шаблону](https://github.com/duban-r/rspo-2026-template/archive/refs/heads/main.zip) →
+розпакувати → скопіювати теку `praktyka/08-prypushchennya` у свій репозиторій.
+
 ## Крок 0. Стенд працює (10 хв)
 
 Три термінали, у кожному — тека `praktyka/08-prypushchennya`.
@@ -221,6 +244,8 @@ git push
 
 | Що бачите | Що це означає | Що робити |
 |---|---|---|
+| `error: remote shablon already exists` | адресу шаблону вже додано раніше | пропустіть цей рядок, одразу `git fetch shablon` |
+| `fatal: invalid reference: shablon/main` | не зробили `git fetch shablon` | спершу `git fetch shablon`, потім `checkout` |
 | `OSError: [WinError 10048] ... адреса вже використовується` | попередня служба ще жива | закрийте старий термінал або `--port 50008` (і `--kudy 50008` у мережі) |
 | Windows питає дозвіл брандмауера | Python відкрив порт | досить дозволу для приватних мереж; усе одно все на `127.0.0.1` |
 | Клієнт висить і не повертається | ви без `--taimaut`, а мережа не відповідає | `Ctrl+C`; це і є припущення №1 у чистому вигляді |
