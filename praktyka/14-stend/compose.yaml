@@ -1,0 +1,24 @@
+# ⭐ Той самий стенд, що й stend.json, але в контейнерах:
+#   docker compose up --build --scale pratsivnyk=3
+#   docker compose run --rm koordynator          # (в іншому терміналі)
+#   docker compose kill pratsivnyk               # убити всіх працівників
+#   docker compose pause broker / unpause broker
+services:
+  broker:
+    build: .
+    command: ["python", "broker.py", "--host", "0.0.0.0", "--pidtverdzhennya"]
+    restart: always
+  pratsivnyk:
+    build: .
+    command: ["python", "pratsivnyk.py"]          # ім'я — ім'я контейнера
+    environment:
+      BROKER_HOST: broker
+    depends_on: [broker]
+    restart: always
+  koordynator:
+    build: .
+    command: ["python", "koordynator.py", "--shmatok", "10"]
+    environment:
+      BROKER_HOST: broker
+    depends_on: [broker]
+    profiles: ["ruchnyi"]

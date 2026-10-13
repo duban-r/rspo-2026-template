@@ -1,0 +1,8 @@
+{
+  "vuzly": [
+    {"imya": "broker", "komanda": ["broker.py", "--pidtverdzhennya"], "perezapusk": true},
+    {"imya": "P1", "komanda": ["pratsivnyk.py", "--imya", "P1"], "perezapusk": true, "pislia": "broker", "zatrymka": 1.0},
+    {"imya": "P2", "komanda": ["pratsivnyk.py", "--imya", "P2"], "perezapusk": true, "pislia": "broker"},
+    {"imya": "P3", "komanda": ["pratsivnyk.py", "--imya", "P3"], "perezapusk": true, "pislia": "broker"}
+  ]
+}
