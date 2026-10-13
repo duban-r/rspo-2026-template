@@ -42,6 +42,29 @@
 
 ---
 
+## Спершу — забрати файли стенда у свій репозиторій (3 хв)
+
+Ваш репозиторій — копія шаблону станом на початок семестру. Файлів стенда в ньому
+немає, і `git pull` їх **не принесе**: він тягне зміни з вашого GitHub, а не з шаблону.
+
+Один раз за семестр — запам'ятати адресу шаблону (якщо вже робили — пропустіть):
+
+```
+git remote add shablon https://github.com/duban-r/rspo-2026-template.git
+```
+
+Перед кожною практичною модуля 2 — забрати теку теми:
+
+```
+git fetch shablon
+git checkout shablon/main -- praktyka/09-arkhitektury
+```
+
+✔ У `praktyka/09-arkhitektury` з'явились `sluzhba.py`, `balansuvalnyk.py`, `shovyshche.py`, `navantazhennya.py`.
+
+Без git: [архів шаблону](https://github.com/duban-r/rspo-2026-template/archive/refs/heads/main.zip) →
+розпакувати → скопіювати теку `praktyka/09-arkhitektury` у свій репозиторій.
+
 ## Крок 0. Один вузол, один клієнт (10 хв)
 
 Термінал 1:
@@ -205,6 +228,8 @@ git push
 
 | Що бачите | Що це означає | Що робити |
 |---|---|---|
+| `error: remote shablon already exists` | адресу шаблону вже додано раніше | пропустіть цей рядок, одразу `git fetch shablon` |
+| `fatal: invalid reference: shablon/main` | не зробили `git fetch shablon` | спершу `git fetch shablon`, потім `checkout` |
 | `WinError 10048` | порт зайнятий старим процесом | закрийте зайвий термінал або візьміть інший порт |
 | Пропускна здатність однакова для 1 і 8 клієнтів | `--robota-cpu` не заданий — служба нічого не рахує | додайте `--robota-cpu 10000` **усім** копіям |
 | `обслужили: A: 400` при двох вузлах | навантаження йде в порт служби, а не балансувальника | `--port 50000` |
